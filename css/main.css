@@ -917,6 +917,7 @@ pre .javascript .function {
 }
 .header-inner {
   margin: 0 auto;
+  padding: 100px 0 70px;
   position: relative;
   width: 700px;
 }
@@ -1072,7 +1073,7 @@ pre .javascript .function {
   box-shadow: inset 0 2px 6px #000;
   position: fixed;
   top: 0;
-  z-index: 1200;
+  z-index: 200;
 }
 .sidebar a,
 .sidebar span.exturl {
@@ -1146,7 +1147,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffd4ff;
+  background: #f40e2b;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1220,7 +1221,7 @@ pre .javascript .function {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1100;
+    z-index: 100;
   }
   .sidebar-active + #sidebar-dimmer {
     opacity: 0.7;
@@ -1268,7 +1269,7 @@ pre .javascript .function {
   padding: 5px;
   position: fixed;
   width: 14px;
-  z-index: 1300;
+  z-index: 300;
 }
 @media (max-width: 991px) {
   .sidebar-toggle {
@@ -1473,7 +1474,7 @@ pre .javascript .function {
   position: fixed;
   text-align: center;
   transition-property: bottom;
-  z-index: 1300;
+  z-index: 300;
   transition-delay: 0s;
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
@@ -2127,24 +2128,13 @@ ul.breadcrumb li + li:last-child {
     width: auto;
   }
 }
-.header-inner {
-  padding-top: 100px;
-}
 @media (max-width: 767px) {
   .header-inner {
-    padding-top: 50px;
+    padding: 50px 0 35px;
   }
 }
 .main-inner {
   padding-bottom: 60px;
-}
-.content {
-  padding-top: 70px;
-}
-@media (max-width: 767px) {
-  .content {
-    padding-top: 35px;
-  }
 }
 embed {
   display: block;
@@ -2236,12 +2226,6 @@ embed {
 .menu .menu-item .badge {
   background: #eee;
   padding: 1px 4px;
-}
-.sub-menu {
-  margin: 10px 0;
-}
-.sub-menu .menu-item {
-  display: inline-block;
 }
 .sidebar {
   left: -320px;
