@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>python-installation</title>
+    <url>/lumix-ia/2019/10/19/python-installation/</url>
+    <content><![CDATA[<p>欢迎大家加入 Lumix 社团。这篇文章简单介绍了在你的电脑上安装<code>Python</code>的过程。<br>本文针对 Windows 操作系统。<em>如果你使用 MacBook 或者 *nix，大概就不用继续看了。</em><br><em>如果你已经预测出了下面会发生什么，大概就不用继续看了。</em></p>
+<h3 id="首先要明确的一点是：安装程序到底会在电脑上安装哪些组件？"><a href="#首先要明确的一点是：安装程序到底会在电脑上安装哪些组件？" class="headerlink" title="首先要明确的一点是：安装程序到底会在电脑上安装哪些组件？"></a>首先要明确的一点是：安装程序到底会在电脑上安装哪些组件？</h3><p>主要有以下三者：</p>
+<ul>
+<li>Python 解释器：顾名思义，即把以<code>Python</code>语言编写好的源代码解释给电脑听的程序，因此也扮演着源代码执行时最重要的角色。</li>
+<li>Python IDLE：<strong>IDLE</strong>是<strong>Integrated DeveLopment Environment</strong>，即一个集成开发环境。利用 IDLE，我们可以对程序进行编写、运行和排查错误。</li>
+<li>模块文档：“文档”在编程方面常常指的是对于某种程序或编程语言详细的参考。以后会在这方面更多介绍。</li>
+</ul>
+<h3 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h3><ol>
+<li>访问<a href="https://www.python.org/downloads/" target="_blank" rel="noopener">Python官网</a>点击<code>Download Python 3.8.0</code>下载安装程序；<strong>或</strong>直接点击<a href="https://www.python.org/ftp/python/3.8.0/python-3.8.0.exe" target="_blank" rel="noopener">这个链接</a>下载安装程序。因为这个 FTP 服务器不在中国大陆，下载速度较慢是正常现象。</li>
+<li>下载成功后运行程序。</li>
+<li>勾选<code>Add Python 3.8 to PATH</code>。</li>
+<li>点击<code>Install Now</code>。然后泡杯茶喝。</li>
+<li>在开始菜单中，新添加了以下入口便安装完毕了。（图中显示3.7.2之处在你的电脑上应该是3.8.0）。</li>
+</ol>
+<h3 id="…and"><a href="#…and" class="headerlink" title="…and?"></a>…and?</h3><p>周末的任务就这么多。感兴趣的话可以把<code>IDLE</code>戳开看看；上B站一类的地方预习下 Python 语言基础。</p>
+<h3 id="p-s-大佬，你们没被忘记"><a href="#p-s-大佬，你们没被忘记" class="headerlink" title="p.s. 大佬，你们没被忘记"></a>p.s. 大佬，你们没被忘记</h3><ul>
+<li>有其他编程语言基础的，尽量看看 Python <a href="https://docs.python.org/zh-cn/3/reference/index.html" target="_blank" rel="noopener">语法参考</a>和<a href="https://docs.python.org/zh-cn/3/library/index.html" target="_blank" rel="noopener">标准库参考</a>中你认为重要的部分。</li>
+<li>此外也可先预习下<a href="https://www.arduino.cc/reference/en/" target="_blank" rel="noopener">Arduino的语法</a>。<br>周一老时间见 :)</li>
+</ul>
+]]></content>
+      <categories>
+        <category>指南</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>安装</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/lumix-ia/2019/10/18/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
