@@ -14,20 +14,21 @@
 
 
 <link rel="stylesheet" href="/lumix-ia/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
 
 
 <script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/lumix-ia/',
-    scheme: 'Muse',
+    scheme: 'Pisces',
     version: '7.4.1',
     exturl: false,
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":true,"show_result":false,"style":"flat"},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    copycode: {"enable":true,"show_result":true,"style":"flat"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
+    fancybox: true,
     mediumzoom: false,
     lazyload: false,
     pangu: false,
@@ -175,9 +176,6 @@
   
   <div class="post-block">
     <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 1 篇日志。 继续努力。</span>
-      </div>
 
       
     <div class="collection-year">
@@ -291,7 +289,7 @@
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.4.1
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.1
   </div>
 
         
@@ -314,10 +312,12 @@
 
   
   <script src="/lumix-ia/lib/anime.min.js?v=3.1.0"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="/lumix-ia/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lumix-ia/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 <script src="/lumix-ia/js/utils.js?v=7.4.1"></script><script src="/lumix-ia/js/motion.js?v=7.4.1"></script>
-<script src="/lumix-ia/js/schemes/muse.js?v=7.4.1"></script>
+<script src="/lumix-ia/js/schemes/pisces.js?v=7.4.1"></script>
 <script src="/lumix-ia/js/next-boot.js?v=7.4.1"></script>
 
 
@@ -346,6 +346,33 @@
   
 
   
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'IlUj225rNiN5JrDm11zrNdMM-9Nh9j0Va',
+    appKey: 'pmP4KOykr9wTxYJoYLxDpJba',
+    placeholder: "在这里，你甚至可以说话。",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
 
 </body>
 </html>
