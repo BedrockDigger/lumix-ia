@@ -3,7 +3,7 @@
   <entry>
     <title>安装 Python</title>
     <url>/lumix-ia/2019/10/19/python-installation/</url>
-    <content><![CDATA[<p>欢迎大家加入 Lumix 社团。这篇文章简单介绍了在你的电脑上安装<code>Python</code>的过程。<br>本文针对 Windows 操作系统。<em>如果你使用 MacBook 或者 *nix，大概就不用继续看了。</em><br><em>如果你已经预测出了下面会发生什么，大概就不用继续看了。</em></p><a id="more"></a>
+    <content><![CDATA[<p>欢迎大家加入 Lumix 社团。这篇文章简单介绍了在你的电脑上安装<code>Python</code>的过程。<br>本文针对 Windows 操作系统。<em>如果你使用 *nix，大概就不用继续看了。</em><br><em>如果你已经预测出了下面会发生什么，大概就不用继续看了。</em></p><a id="more"></a>
 <h3 id="首先要明确的一点是：安装程序到底会在电脑上安装哪些组件？"><a href="#首先要明确的一点是：安装程序到底会在电脑上安装哪些组件？" class="headerlink" title="首先要明确的一点是：安装程序到底会在电脑上安装哪些组件？"></a>首先要明确的一点是：安装程序到底会在电脑上安装哪些组件？</h3><p>主要有以下三者：</p>
 <ul>
 <li>Python 解释器：顾名思义，即把以<code>Python</code>语言编写好的源代码解释给电脑听的程序，因此也扮演着源代码执行时最重要的角色。</li>
