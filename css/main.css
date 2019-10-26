@@ -147,7 +147,7 @@ template {
   display: none;
 }
 ::selection {
-  background: #262a30;
+  background: $blue-light;
   color: #fff;
 }
 html,
@@ -204,16 +204,16 @@ a,
 span.exturl {
   overflow-wrap: break-word;
   word-wrap: break-word;
-  border-bottom: 1px solid #999;
-  color: #555;
+  border-bottom: 1px solid #0684bd;
+  color: #0684bd;
   outline: 0;
   text-decoration: none;
   cursor: pointer;
 }
 a:hover,
 span.exturl:hover {
-  border-bottom-color: #222;
-  color: #222;
+  border-bottom-color: #009688;
+  color: #009688;
 }
 iframe,
 img,
@@ -311,7 +311,7 @@ td {
 }
 .btn:hover {
   background: #222;
-  border-color: #222;
+  border-color: #009688;
   color: #fff;
 }
 .btn + .btn {
@@ -706,7 +706,7 @@ pre .javascript .function {
 }
 .post-body .tabs ul.nav-tabs li.tab.active a,
 .tabs-comment ul.nav-tabs li.tab.active a {
-  color: #555;
+  color: #0684bd;
   cursor: default;
 }
 .post-body .tabs .tab-content .tab-pane,
@@ -904,7 +904,7 @@ pre .javascript .function {
 }
 .comment-button-group .comment-button.active {
   background: #222;
-  border-color: #222;
+  border-color: #009688;
   color: #fff;
 }
 .comment-position {
@@ -1173,10 +1173,13 @@ pre .javascript .function {
   margin-bottom: 10px;
   margin-right: 10px;
   vertical-align: middle;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffff60;
+  background: #659cfa;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1426,7 +1429,7 @@ pre .javascript .function {
   }
 }
 .with-love {
-  color: #808080;
+  color: #009688;
   display: inline-block;
   margin: 0 5px;
 }
@@ -1960,7 +1963,7 @@ pre .javascript .function {
 }
 .post-nav-item a {
   border-bottom: none;
-  color: #555;
+  color: #0684bd;
   display: block;
   font-size: 0.875em;
   line-height: 1.6;
@@ -1968,7 +1971,7 @@ pre .javascript .function {
 }
 .post-nav-item a:hover {
   border-bottom: none;
-  color: #222;
+  color: #009688;
 }
 .post-nav-item a:active {
   top: 2px;
@@ -2220,7 +2223,7 @@ ul.breadcrumb li + li:last-child {
   margin: 10px;
 }
 .tag-cloud a:hover {
-  color: #222 !important;
+  color: #009688 !important;
 }
 .search-pop-overlay {
   background: rgba(0,0,0,0.3);

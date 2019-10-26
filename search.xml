@@ -1,6 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Python 第一课</title>
+    <url>/lumix-ia/2019/10/26/python-lesson1/</url>
+    <content><![CDATA[<h1 id="先说一句…"><a href="#先说一句…" class="headerlink" title="先说一句…"></a>先说一句…</h1><ul>
+<li><strong>请大家尽量自己亲自写一遍上面的代码并执行</strong>。编程如同刷题，不过手、当“云玩家”真的很难进步！</li>
+<li>有任何问题，都<del>可以</del><strong>必须</strong>在下面的评论区或是 Lumix 2019 QQ群里提出来！</li>
+<li>如果你需要下载或打印这篇文章，<a href="https://cdn.jsdelivr.net/gh/bedrockdigger/lumix-ia@master/documents/python-lesson1.pdf" target="_blank" rel="noopener">点击这里下载 PDF 版本</a>。</li>
+</ul><a id="more"></a>
+<h1 id="这一周的总结"><a href="#这一周的总结" class="headerlink" title="这一周的总结"></a>这一周的总结</h1><p>第一周，开始学习 Python 编程语言。巩固了编程相关基本概念；学习了字符串、整数和浮点数三种基本变量以及对它们的操作；了解了<code>print()</code>、<code>str()</code>、<code>int()</code>三种函数的简单用法。</p>
+<h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World!"></a>Hello World!</h1><p>你自己的<del>第一个</del>程序。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(<span class="string">"Hello world!"</span>)</span><br></pre></td></tr></table></figure>
+<p>需要注意一下几点：</p>
+<ul>
+<li><code>print()</code>是一个<em>函数</em>，和数学中相似，编程中的函数需要用（英文的，半角）小括号将它的参数括起来。</li>
+<li>在这个程序中，小括号内的<code>&quot;Hello world!&quot;</code>字符串是<code>print()</code>的参数。</li>
+<li>在 Python IDLE 或其他具有<em>代码高亮</em>功能的文本（程序源代码的本质就是文本文件）编辑工具中，你会看见如上这种现象：<code>print()</code>和<code>&quot;Hello world!&quot;</code>的颜色不一样，指示着它们在代码中的性质不一样——前者是函数，后者是字符串。</li>
+<li>使用<code>\n</code>可以使输出提行；使用<code>\t</code>可以使输出空出一个制表符。如：<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(<span class="string">"line 1\n line 2\n line 3"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(<span class="string">"\ttabled line 1"</span>)</span><br></pre></td></tr></table></figure>
+的输出分别是<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">line 1</span><br><span class="line">line 2</span><br><span class="line">line 3</span><br></pre></td></tr></table></figure>
+和（注意缩进）<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tabled line 1</span><br></pre></td></tr></table></figure>
+。</li>
+</ul>
+<h1 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h1><p><em>注释</em>让你能够使用自然语言（即中文、英文等等）在程序里添加说明。注释在程序执行时会直接被 Python 解释器忽略。</p>
+<p>在 Python 中，你可以用井号“<code>#</code>”或三个“<code>&#39;</code>”来表示注释。如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 这是我的第一个 Python 程序。</span></span><br><span class="line">print(<span class="string">"Hello world!"</span>)</span><br></pre></td></tr></table></figure>
+<p>或</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">'''这是我的第一个 Python 程序。'''</span></span><br><span class="line">print(<span class="string">"Hello world!"</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><p>在 Python 中，<em>变量</em>就是值可以被改变的数据（顾名思义嘛）。每一个变量都具有以下两个属性：<strong>名字</strong>和<strong>值</strong>。</p>
+<h2 id="变量的命名"><a href="#变量的命名" class="headerlink" title="变量的命名"></a>变量的命名</h2><p>Python 中变量的名字只能由字母、数字和下划线(及“<code>_</code>”)组成，另外</p>
+<ul>
+<li>不能以数字开头；</li>
+<li>除上面提及的字符以外的任何字符都不能作为变量名的组成部分，<strong>包括空格</strong>。</li>
+<li>不能用关键字和函数的名字用作变量名。例如，<code>print</code>作为变量是不被允许的。</li>
+</ul>
+<p>因此，强迫症地列一个规则表：</p>
+<table>
+<thead>
+<tr>
+<th align="center">第一个字符</th>
+<th align="center">第二至第n个字符</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">字母、下划线</td>
+<td align="center">字母、数字、下划线</td>
+</tr>
+</tbody></table>
+<p>正确举例：</p>
+<ul>
+<li><code>name</code></li>
+<li><code>age</code></li>
+<li><code>name10</code></li>
+<li><code>_age</code></li>
+<li><code>name_and_age</code></li>
+</ul>
+<p>错误举例：</p>
+<ul>
+<li><code>%name%</code> - 带有非法符号“<code>%</code>”</li>
+<li><code>10name</code> - 以数字开头</li>
+<li><code>10_name</code> - 以数字开头</li>
+<li><code>print</code> - 与 Python 的函数重名</li>
+</ul>
+<h2 id="变量的赋值"><a href="#变量的赋值" class="headerlink" title="变量的赋值"></a>变量的赋值</h2><p>在为变量赋值时，需要指定变量名和值。格式为：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">var_name = var_value</span><br></pre></td></tr></table></figure>
+<p>其中<code>var_name</code>为变量名，<code>var_value</code>为变量值。也就是说，这行代码的作用是把等号右边的赋予给等号左边的名字。以后想使用等号右边的值，可用等号左边的变量名来代表变量值。注意与数学中等号的意义区分开——编程中的等号的意义不是“等于”。</p>
+<h2 id="变量的类型"><a href="#变量的类型" class="headerlink" title="变量的类型"></a>变量的类型</h2><h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p><em>字符串</em>即一系列字符。在 Python 中，字符串必须被（英文的，半角）双引号对或单引号对括起来，例如<code>&quot;Hello world!&quot;</code>和<code>&#39;Goodye&#39;</code>。</p>
+<h4 id="给字符串赋值"><a href="#给字符串赋值" class="headerlink" title="给字符串赋值"></a>给字符串赋值</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = <span class="string">"lumix"</span></span><br><span class="line">school = <span class="string">'CDEFLS'</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="给字符串的拼接"><a href="#给字符串的拼接" class="headerlink" title="给字符串的拼接"></a>给字符串的拼接</h4><p>在 Python 中，字符串可直接用加号（“<code>+</code>”）连接到一起，如：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">full_name = <span class="string">"lumix"</span> + <span class="string">" "</span> + <span class="string">"school"</span></span><br></pre></td></tr></table></figure>
+<p>在拼接后，变量<code>pretty_full_name</code>的值是<code>&quot;lumix school&quot;</code>（注意空格是怎么添加进去的）。</p>
+<h4 id="用print-函数输出字符串"><a href="#用print-函数输出字符串" class="headerlink" title="用print()函数输出字符串"></a>用<code>print()</code>函数输出字符串</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(<span class="string">"Lumix"</span>)</span><br></pre></td></tr></table></figure>
+<p>当然，这句代码和</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = <span class="string">"Lumix"</span></span><br><span class="line">print(name)</span><br></pre></td></tr></table></figure>
+<p>等价。</p>
+<h3 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h3><h4 id="给数字变量赋值"><a href="#给数字变量赋值" class="headerlink" title="给数字变量赋值"></a>给数字变量赋值</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">year = <span class="number">2019</span></span><br><span class="line">age = <span class="number">16</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="小学数学：加减乘除和四则混合运算"><a href="#小学数学：加减乘除和四则混合运算" class="headerlink" title="小学数学：加减乘除和四则混合运算"></a>小学数学：加减乘除和四则混合运算</h4><p>请注意：</p>
+<ul>
+<li>Python 中的乘号是<code>*</code>，除号是<code>/</code>（除号要和<code>\n</code>与<code>\t</code>中的<code>\</code>区分开）</li>
+<li>Python 中的小括号也表示优先计算，但与数学不同，没有中括号或大括号。</li>
+<li>下面例子中表示赋值符号“<code>=</code>”、变量名和运算符号之间的空格不是必须的，但为了使程序清晰可读，建议你也这样写。<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = <span class="number">1</span></span><br><span class="line">b = <span class="number">2</span></span><br><span class="line">c = <span class="number">5</span></span><br><span class="line">d = <span class="number">10</span></span><br><span class="line">sum = a + b</span><br><span class="line">difference = d - c</span><br><span class="line">product = b * c</span><br><span class="line">quotient = d / c</span><br><span class="line">mixed_1 = a + b - c * d</span><br><span class="line">mixed_2 = a + (b - c) * d</span><br><span class="line">mixed_3 = a + ( (b - c) - d)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h3><p>Python 将带小数点的数字称为<em>浮点数</em>。所谓“浮”，指的是<strong>小数点可出现在数字的任何位置</strong>。例如：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">float_1 = <span class="number">0.1</span></span><br><span class="line">float_2 = <span class="number">0.5</span></span><br></pre></td></tr></table></figure>
+<p>浮点数也可像上面的整数一样加减乘除和进行四则运算。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fsum = <span class="number">0.1</span> + <span class="number">0.5</span></span><br><span class="line">fproduct = <span class="number">0.1</span> * <span class="number">5</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="str-和int-函数"><a href="#str-和int-函数" class="headerlink" title="str()和int()函数"></a><code>str()</code>和<code>int()</code>函数</h1><p><code>str()</code>将数字变量转换为字符串。这在输出数字时是必要的：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">year = <span class="number">2019</span></span><br><span class="line">print(str(year))</span><br></pre></td></tr></table></figure>
+<p><code>int()</code>的行为正和<code>str()</code>相反。可将本以字符串类型存储的真·数字转换为数字，从而进行加减乘除等只能在数字上进行的操作。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">year = <span class="string">"2019"</span></span><br><span class="line">future = int(year) + <span class="number">1000</span></span><br></pre></td></tr></table></figure>
+<p>当然，如果要把整数变量<code>future</code>的值当作<code>print()</code>的参数输出出来，需要再次转换为字符串变量。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(str(future))</span><br></pre></td></tr></table></figure>
+
+<h1 id="另外…（首尾照应）"><a href="#另外…（首尾照应）" class="headerlink" title="另外…（首尾照应）"></a>另外…（首尾照应）</h1><ul>
+<li>请<strong>认真看完这篇并亲自写一遍并执行了一下所有程序</strong>的你在这个页面的评论区回复一个“名字+已完成”。（“幸好翻到了这里”，你庆幸道。😏）</li>
+<li><strong>请大家尽量自己亲自写一遍上面的代码并执行</strong>。编程如同刷题，不过手、当“云玩家”真的很难进步！有任何问题，都<del>可以</del><strong>必须</strong>在下面的评论区或是 Lumix 2019 QQ群里提出来！</li>
+</ul>
+<p>下周一务必、务必、务必记得带电脑。大家周末快乐！😉</p>
+]]></content>
+      <categories>
+        <category>资料</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>print()</tag>
+        <tag>str()</tag>
+        <tag>int()</tag>
+        <tag>字符串变量</tag>
+        <tag>整数变量</tag>
+        <tag>浮点数变量</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>安装 Python</title>
     <url>/lumix-ia/2019/10/19/python-installation/</url>
     <content><![CDATA[<p>欢迎大家加入 Lumix 社团。这篇文章简单介绍了在你的电脑上安装<code>Python</code>的过程。<br>本文针对 Windows 操作系统。<em>如果你使用 *nix，大概就不用继续看了。</em><br><em>如果你已经预测出了下面会发生什么，大概就不用继续看了。</em></p><a id="more"></a>
@@ -15,7 +132,7 @@
 <li>下载成功后运行程序。</li>
 <li>勾选<code>Add Python 3.8 to PATH</code>。</li>
 <li>点击<code>Install Now</code>。然后泡杯茶喝。</li>
-<li>在开始菜单中，新添加了以下入口便安装完毕了。（图中显示3.7.2之处在你的电脑上应该是3.8.0）。<br><img src="https://s2.ax1x.com/2019/10/19/Kn4qiV.png" alt="start-menu-screenshot"></li>
+<li>在开始菜单中，新添加了以下入口便安装完毕了。（图中显示3.7.2之处在你的电脑上应该是3.8.0）。<br><img src="https://cdn.jsdelivr.net/gh/bedrockdigger/lumix-ia@master/assets/python-installation" alt="start-menu-screenshot"></li>
 </ol>
 <h3 id="…and"><a href="#…and" class="headerlink" title="…and?"></a>…and?</h3><p>周末的任务就这么多。感兴趣的话可以把<code>IDLE</code>戳开看看；上B站一类的地方预习下 Python 语言基础。<br>另外，你可能已经注意到了这个页面底部有个评论模块。如果你想说什么或者有一些问题，都可以在相应文章的评论栏填写<code>昵称</code>和<code>邮箱</code>（不用管那个<code>网址</code>）之后畅所欲言。</p>
 <h3 id="p-s-大佬，你们没被忘记"><a href="#p-s-大佬，你们没被忘记" class="headerlink" title="p.s. 大佬，你们没被忘记"></a>p.s. 大佬，你们没被忘记</h3><ul>
@@ -32,14 +149,14 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
+    <title>Hello World!</title>
     <url>/lumix-ia/2019/10/18/hello-world/</url>
     <content><![CDATA[<h2 id="衷心欢迎各位加入-Lumix-大家庭！"><a href="#衷心欢迎各位加入-Lumix-大家庭！" class="headerlink" title="衷心欢迎各位加入 Lumix 大家庭！"></a>衷心欢迎各位加入 Lumix 大家庭！</h2><h6 id="此网站算是我们社团以后的“官网”，收藏下嘛？"><a href="#此网站算是我们社团以后的“官网”，收藏下嘛？" class="headerlink" title="此网站算是我们社团以后的“官网”，收藏下嘛？"></a>此网站算是我们社团以后的“官网”，收藏下嘛？</h6>]]></content>
       <categories>
         <category>里程碑</category>
       </categories>
       <tags>
-        <tag>Hello World</tag>
+        <tag>Hello World!</tag>
       </tags>
   </entry>
 </search>
