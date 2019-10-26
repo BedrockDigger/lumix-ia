@@ -18,8 +18,7 @@
 <li>在 Python IDLE 或其他具有<em>代码高亮</em>功能的文本（程序源代码的本质就是文本文件）编辑工具中，你会看见如上这种现象：<code>print()</code>和<code>&quot;Hello world!&quot;</code>的颜色不一样，指示着它们在代码中的性质不一样——前者是函数，后者是字符串。</li>
 <li>使用<code>\n</code>可以使输出提行；使用<code>\t</code>可以使输出空出一个制表符。如：<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(<span class="string">"line 1\n line 2\n line 3"</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(<span class="string">"\ttabled line 1"</span>)</span><br></pre></td></tr></table></figure>
-的输出分别是<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">line 1</span><br><span class="line">line 2</span><br><span class="line">line 3</span><br></pre></td></tr></table></figure>
-和（注意缩进）<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tabled line 1</span><br></pre></td></tr></table></figure>
+。<br>前者的输出是<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">line 1</span><br><span class="line">line 2</span><br><span class="line">line 3</span><br></pre></td></tr></table></figure>
 。</li>
 </ul>
 <h1 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h1><p><em>注释</em>让你能够使用自然语言（即中文、英文等等）在程序里添加说明。注释在程序执行时会直接被 Python 解释器忽略。</p>
@@ -132,7 +131,7 @@
 <li>下载成功后运行程序。</li>
 <li>勾选<code>Add Python 3.8 to PATH</code>。</li>
 <li>点击<code>Install Now</code>。然后泡杯茶喝。</li>
-<li>在开始菜单中，新添加了以下入口便安装完毕了。（图中显示3.7.2之处在你的电脑上应该是3.8.0）。<br><img src="https://cdn.jsdelivr.net/gh/bedrockdigger/lumix-ia@master/assets/python-installation" alt="start-menu-screenshot"></li>
+<li>在开始菜单中，新添加了以下入口便安装完毕了。（图中显示3.7.2之处在你的电脑上应该是3.8.0）。<br><img src="https://cdn.jsdelivr.net/gh/bedrockdigger/lumix-ia@master/assets/python-installation.png" alt="start-menu-screenshot"></li>
 </ol>
 <h3 id="…and"><a href="#…and" class="headerlink" title="…and?"></a>…and?</h3><p>周末的任务就这么多。感兴趣的话可以把<code>IDLE</code>戳开看看；上B站一类的地方预习下 Python 语言基础。<br>另外，你可能已经注意到了这个页面底部有个评论模块。如果你想说什么或者有一些问题，都可以在相应文章的评论栏填写<code>昵称</code>和<code>邮箱</code>（不用管那个<code>网址</code>）之后畅所欲言。</p>
 <h3 id="p-s-大佬，你们没被忘记"><a href="#p-s-大佬，你们没被忘记" class="headerlink" title="p.s. 大佬，你们没被忘记"></a>p.s. 大佬，你们没被忘记</h3><ul>
