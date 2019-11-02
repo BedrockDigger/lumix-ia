@@ -59,7 +59,7 @@
 <meta property="og:site_name" content="Lumix 创新社">
 <meta property="og:description" content="先说一句… 第三周的社团活动可能会有一个德国人来参加，因此会用中文和英语讲 Python。 如果你需要下载或打印这篇文章，点击这里下载 PDF 版本。 这一周的总结第二周，学习了判断语句，if、if-else和if-elif-else三种结构。初识列表，了解列表的初始化、删除和添加元素。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-02T15:49:13.283Z">
+<meta property="og:updated_time" content="2019-11-02T15:53:49.827Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://bedrockdigger.github.io/lumix-ia/2019/11/02/python-lesson2/">
@@ -235,7 +235,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2019-11-02 23:05:42 / 修改时间：23:49:13" itemprop="dateCreated datePublished" datetime="2019-11-02T23:05:42+08:00">2019-11-02</time>
+              <time title="创建时间：2019-11-02 23:05:42 / 修改时间：23:53:49" itemprop="dateCreated datePublished" datetime="2019-11-02T23:05:42+08:00">2019-11-02</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -289,9 +289,47 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="literal">False</span>:</span><br><span class="line">    print(<span class="string">"It's false!"</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">expr = <span class="literal">True</span></span><br><span class="line"><span class="keyword">if</span> expr:</span><br><span class="line">    print(<span class="string">"It's true!"</span>)</span><br></pre></td></tr></table></figure>
 
-<h3 id="其他条件运算符"><a href="#其他条件运算符" class="headerlink" title="其他条件运算符"></a>其他条件运算符</h3><p>这些运算符的用法同“<code>==</code>”。<br>|符号 |含义   |<br>|:–:|——-|<br>|<code>!=</code>|不等于  |<br>|<code>&gt;</code> |大于   |<br>|<code>&lt;</code> |小于   |<br>|<code>&gt;=</code>|大于等于|<br>|<code>&lt;=</code>|小于等于|<br>显然，它们可以用于判断数字（整数、浮点数）之间的大小关系。那么像</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="string">"a"</span> &gt; <span class="string">"b"</span>:</span><br></pre></td></tr></table></figure>
-<p>比较字符串符合 Python 的语法要求吗？</p>
+<h3 id="其他条件运算符"><a href="#其他条件运算符" class="headerlink" title="其他条件运算符"></a>其他条件运算符</h3><p>这些运算符的用法同“<code>==</code>”。</p>
+<table>
+<thead>
+<tr>
+<th align="center">符号</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>!=</code></td>
+<td>不等于</td>
+</tr>
+<tr>
+<td align="center"><code>&gt;</code></td>
+<td>大于</td>
+</tr>
+<tr>
+<td align="center"><code>&lt;</code></td>
+<td>小于</td>
+</tr>
+<tr>
+<td align="center"><code>&gt;=</code></td>
+<td>大于等于</td>
+</tr>
+<tr>
+<td align="center"><code>&lt;=</code></td>
+<td>小于等于</td>
+</tr>
+<tr>
+<td align="center">显然，它们可以用于判断数字（整数、浮点数）之间的大小关系。那么像</td>
+<td></td>
+</tr>
+<tr>
+<td align="center"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="string">"a"</span> &gt; <span class="string">"b"</span>:</span><br></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">比较字符串符合 Python 的语法要求吗？</td>
+<td></td>
+</tr>
+</tbody></table>
 <h3 id="关键词and和or"><a href="#关键词and和or" class="headerlink" title="关键词and和or"></a>关键词<code>and</code>和<code>or</code></h3><p>和数学中的复合命题含义相同。这两个关键字决定了其左右两个表达式复合到一起的新表达式的值的判断。<br>格式：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> expr_a <span class="keyword">and</span> expr_b:</span><br><span class="line"><span class="comment"># 省略剩下循环语句</span></span><br></pre></td></tr></table></figure>
 <p>和</p>
