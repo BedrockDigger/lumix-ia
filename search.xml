@@ -47,7 +47,7 @@
 <td>小于等于</td>
 </tr>
 </tbody></table>
-<p>显然，它们可以用于判断数字（整数、浮点数）之间的大小关系。那么像</p>
+<h4 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h4><p>显然，它们可以用于判断数字（整数、浮点数）之间的大小关系。那么像</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="string">"a"</span> &gt; <span class="string">"b"</span>:</span><br></pre></td></tr></table></figure>
 <p>比较字符串符合 Python 的语法要求吗？</p>
 <h3 id="关键词and和or"><a href="#关键词and和or" class="headerlink" title="关键词and和or"></a>关键词<code>and</code>和<code>or</code></h3><p>和数学中的复合命题含义相同。这两个关键字决定了其左右两个表达式复合到一起的新表达式的值的判断。<br>格式：</p>
