@@ -1,6 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Python 第二课</title>
+    <url>/lumix-ia/2019/11/02/python-lesson2/</url>
+    <content><![CDATA[<h1 id="先说一句…"><a href="#先说一句…" class="headerlink" title="先说一句…"></a>先说一句…</h1><ul>
+<li>第三周的社团活动可能会有一个德国人来参加，因此会用中文和英语讲 Python。</li>
+<li>如果你需要下载或打印这篇文章，<a href="https://cdn.jsdelivr.net/gh/bedrockdigger/lumix-ia@master/documents/python-lesson2.pdf" target="_blank" rel="noopener">点击这里下载 PDF 版本</a>。</li>
+</ul><h1 id="这一周的总结"><a href="#这一周的总结" class="headerlink" title="这一周的总结"></a>这一周的总结</h1><p>第二周，学习了判断语句，<code>if</code>、<code>if-else</code>和<code>if-elif-else</code>三种结构。初识列表，了解列表的初始化、删除和添加元素。</p><a id="more"></a>
+
+<h1 id="if-语句"><a href="#if-语句" class="headerlink" title="if 语句"></a>if 语句</h1><h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>进行条件测试。</p>
+<h2 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h2><h3 id="条件测试表达式"><a href="#条件测试表达式" class="headerlink" title="条件测试表达式"></a>条件测试表达式</h3><p>每一个<em>条件测试表达式</em>（又称<em>布尔表达式</em>）的值只可能是正确，即<code>True</code>；或错误，即<code>False</code>二者中一种（注意大小写）。<br>条件测试表达式的基本格式是：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">var == value</span><br></pre></td></tr></table></figure>
+<p>其中<code>var</code>为一变量名，<code>value</code>“<code>==</code>”被称为<em>相等运算符</em>。显然，这个运算符使得只有待测试值是变量的值时，整个表达式的值才为<code>True</code>；反之则为<code>False</code>。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = <span class="string">"lumix"</span></span><br><span class="line"><span class="keyword">if</span> name == <span class="string">"lumix"</span>:</span><br><span class="line">    print(<span class="string">"Nice!"</span>)</span><br></pre></td></tr></table></figure>
+<p>注意第三行的缩进：“<code>:</code>”的下一行在开始处需要<strong>四个空格</strong>（或一个制表符——按<code>Tab</code>键输入）</p>
+<h3 id="直接给值"><a href="#直接给值" class="headerlink" title="直接给值"></a>直接给值</h3><p>由于一个条件测试表达式等价于<code>True</code>或<code>False</code>，原表达式可以用这两种值的一种或代表这两种值的一种的变量名替代，即：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="literal">False</span>:</span><br><span class="line">    print(<span class="string">"It's false!"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">expr = <span class="literal">True</span></span><br><span class="line"><span class="keyword">if</span> expr:</span><br><span class="line">    print(<span class="string">"It's true!"</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="其他条件运算符"><a href="#其他条件运算符" class="headerlink" title="其他条件运算符"></a>其他条件运算符</h3><p>这些运算符的用法同“<code>==</code>”。<br>|符号 |含义   |<br>|:–:|——-|<br>|<code>!=</code>|不等于  |<br>|<code>&gt;</code> |大于   |<br>|<code>&lt;</code> |小于   |<br>|<code>&gt;=</code>|大于等于|<br>|<code>&lt;=</code>|小于等于|<br>显然，它们可以用于判断数字（整数、浮点数）之间的大小关系。那么像</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="string">"a"</span> &gt; <span class="string">"b"</span>:</span><br></pre></td></tr></table></figure>
+<p>比较字符串符合 Python 的语法要求吗？</p>
+<h3 id="关键词and和or"><a href="#关键词and和or" class="headerlink" title="关键词and和or"></a>关键词<code>and</code>和<code>or</code></h3><p>和数学中的复合命题含义相同。这两个关键字决定了其左右两个表达式复合到一起的新表达式的值的判断。<br>格式：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> expr_a <span class="keyword">and</span> expr_b:</span><br><span class="line"><span class="comment"># 省略剩下循环语句</span></span><br></pre></td></tr></table></figure>
+<p>和</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> expr_a <span class="keyword">or</span> expr_b:</span><br><span class="line"><span class="comment"># 省略剩下循环语句</span></span><br></pre></td></tr></table></figure>
+<p><code>and</code>左右两边的表达式值均为<code>True</code>时，复合表达式的值才为<code>True</code>；否则就是<code>False</code>。<br><code>or</code>左右至少一边的表达式值为<code>True</code>时，符合表达式的值就为<code>True</code>；反之则是<code>False</code>。</p>
+<h2 id="更复杂的结构"><a href="#更复杂的结构" class="headerlink" title="更复杂的结构"></a>更复杂的结构</h2><h3 id="if-else-结构"><a href="#if-else-结构" class="headerlink" title="if-else 结构"></a><em>if-else</em> 结构</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">age = <span class="number">17</span></span><br><span class="line"><span class="keyword">if</span> age == <span class="number">18</span>:</span><br><span class="line">    print(<span class="string">"Hey! Happy Comming-of-Age Day!"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">"Your age isn't correct for the celebration!"</span>)</span><br></pre></td></tr></table></figure>
+<p><code>else</code>后不再需要条件表达式。<br>同样，两个“<code>:</code>”后的第二行都需要缩进。</p>
+<h3 id="if-elif-else-结构"><a href="#if-elif-else-结构" class="headerlink" title="if-elif-else 结构"></a><em>if-elif-else</em> 结构</h3><p>顾名思义，<code>elif</code>指的是“else if”，即“其他如果”。<code>if</code>和<code>else</code>之间可以存在单个或多个<code>elif</code>。</p>
+<p>条件的判断从前到后，即未通过第一个<code>if</code>之后才能进行第一个<code>elif</code>判断；任意一个<code>if</code>或<code>elif</code>的判断一旦被满足，程序的执行就会跳过整个<code>if-elif-else</code>结构的剩下部分。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">score = <span class="number">50</span></span><br><span class="line"><span class="keyword">if</span> score = <span class="number">100</span>:</span><br><span class="line">    print(<span class="string">"full marks"</span>)</span><br><span class="line"><span class="keyword">elif</span> score &lt; <span class="number">100</span> <span class="keyword">and</span> score &gt;= <span class="number">90</span>:</span><br><span class="line">    print(<span class="string">"nice"</span>)</span><br><span class="line"><span class="keyword">elif</span> score &lt; <span class="number">90</span> <span class="keyword">and</span> score &gt;= <span class="number">80</span>:</span><br><span class="line">    print(<span class="string">"so so"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">"improvement needed"</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="列表（list）"><a href="#列表（list）" class="headerlink" title="列表（list）"></a>列表（list）</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>在 Python 中，变量指的是有序的、可变的元素集合。（同一个列表中）元素可为多种数据类型，如数字和字符串。</p>
+<h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><p>类似数字和字符串的声明，列表的声明使用<code>=</code>赋值符号。以逗号（英语，半角）将元素间隔开；一头一尾用方括号包裹。<br>声明一个全由字符串组成的列表：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">topics = [<span class="string">'maker'</span>, <span class="string">'arduino'</span>, <span class="string">'ml'</span>, <span class="string">'nl'</span>]</span><br></pre></td></tr></table></figure>
+<p>声明一个多种元素数据类型的列表：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">mess = [<span class="string">'lumix'</span>, <span class="number">4</span>, <span class="number">10.00</span>, <span class="literal">True</span>]</span><br></pre></td></tr></table></figure>
+<p>在 Python 中，值只能为<code>True</code>或<code>False</code>的变量称为<em>布尔型变量</em>。因此，数组<code>mess</code>中的元素有字符串、数字（整数与浮点数）和布尔三种变量类型。</p>
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><h3 id="输出整个列表"><a href="#输出整个列表" class="headerlink" title="输出整个列表"></a>输出整个列表</h3><p>函数<code>print()</code>接受直接将列表作为参数。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">print(themes)</span><br></pre></td></tr></table></figure>
+
+<h3 id="引用元素"><a href="#引用元素" class="headerlink" title="引用元素"></a>引用元素</h3><p>基本格式为<code>list[num]</code>。其中<code>list</code>是一已声明的列表名；<code>num</code>是所引用元素在该列表中的索引（角标）。<strong>Python 中的角标从0开始。</strong>使用<code>list[-n]</code>引用列表<code>list</code>中<strong>倒数</strong>第n个元素。</p>
+<p>将值<code>&#39;arduino&#39;</code>赋给变量<code>name</code>：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">topics = [<span class="string">'maker'</span>, <span class="string">'arduino'</span>, <span class="string">'ml'</span>, <span class="string">'nl'</span>]</span><br><span class="line">name = topic[<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+
+<p>打印出第三个元素（角标为2）：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(topics[<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
+<p>在这里倒着引用</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(topics[<span class="number">-2</span>])</span><br></pre></td></tr></table></figure>
+<p>等价。</p>
+<h3 id="删除元素"><a href="#删除元素" class="headerlink" title="删除元素"></a>删除元素</h3><h4 id="del"><a href="#del" class="headerlink" title="del"></a>del</h4><p>Python 中，可以用<strong>语句</strong><code>del</code>删除列表中的元素。之所以被叫做<strong>语句</strong>，是因为它没有像函数一样把参数框起来的括号。<br>删除<code>topics</code>中的最后一项：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">del</span> topics[<span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+
+<h4 id="remove"><a href="#remove" class="headerlink" title="remove()"></a>remove()</h4><p>注意<code>remove</code>方法的格式和参数。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">topics.remove(<span class="string">'ml'</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><p>使用方法<code>sort()</code>。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">topics.sort()</span><br></pre></td></tr></table></figure>
+
+<h1 id="另外…（首尾照应）"><a href="#另外…（首尾照应）" class="headerlink" title="另外…（首尾照应）"></a>另外…（首尾照应）</h1><ul>
+<li>请<strong>认真看完这篇并亲自写一遍并执行了一下所有程序</strong>的你在这个页面的评论区回复一个“名字+已完成”。（“幸好翻到了这里”，你庆幸道。😏）</li>
+<li><strong>请大家尽量自己亲自写一遍上面的代码并执行</strong>。编程如同刷题，不过手、当“云玩家”真的很难进步！有任何问题，都<del>可以</del><strong>必须</strong>在下面的评论区或是 Lumix 2019 QQ群里提出来！</li>
+</ul>
+<p>下周一请尽量电脑。大家周末快乐！😉</p>
+]]></content>
+      <categories>
+        <category>资料</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>if</tag>
+        <tag>else</tag>
+        <tag>elif</tag>
+        <tag>list</tag>
+        <tag>del</tag>
+        <tag>remove()</tag>
+        <tag>sort()</tag>
+        <tag>sorted()</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python 第一课</title>
     <url>/lumix-ia/2019/10/26/python-lesson1/</url>
     <content><![CDATA[<h1 id="先说一句…"><a href="#先说一句…" class="headerlink" title="先说一句…"></a>先说一句…</h1><ul>

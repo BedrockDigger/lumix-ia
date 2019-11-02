@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#B2EBF2">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/lumix-ia/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/lumix-ia/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/lumix-ia/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/lumix-ia/images/logo.svg" color="#B2EBF2">
+
+<link rel="stylesheet" href="/lumix-ia/css/main.css">
+
+
+<link rel="stylesheet" href="/lumix-ia/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/lumix-ia/',
+    scheme: 'Pisces',
+    version: '7.4.2',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"flat"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="先说一句… 第三周的社团活动可能会有一个德国人来参加，因此会用中文和英语讲 Python。 如果你需要下载或打印这篇文章，点击这里下载 PDF 版本。 这一周的总结第二周，学习了判断语句，if、if-else和if-elif-else三种结构。初识列表，了解列表的初始化、删除和添加元素。">
+<meta name="keywords" content="Python,if,else,elif,list,del,remove(),sort(),sorted()">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 第二课">
+<meta property="og:url" content="http:&#x2F;&#x2F;bedrockdigger.github.io&#x2F;lumix-ia&#x2F;2019&#x2F;11&#x2F;02&#x2F;python-lesson2&#x2F;index.html">
+<meta property="og:site_name" content="Lumix 创新社">
+<meta property="og:description" content="先说一句… 第三周的社团活动可能会有一个德国人来参加，因此会用中文和英语讲 Python。 如果你需要下载或打印这篇文章，点击这里下载 PDF 版本。 这一周的总结第二周，学习了判断语句，if、if-else和if-elif-else三种结构。初识列表，了解列表的初始化、删除和添加元素。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-02T15:49:13.283Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://bedrockdigger.github.io/lumix-ia/2019/11/02/python-lesson2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Python 第二课 | Lumix 创新社</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/lumix-ia/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Lumix 创新社</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Lumix Innovative Association</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/lumix-ia/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/lumix-ia/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/lumix-ia/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/lumix-ia/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://bedrockdigger.github.io/lumix-ia/lumix-ia/2019/11/02/python-lesson2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/lumix-ia/images/lumix-logo.png">
+      <meta itemprop="name" content="illuminate + X">
+      <meta itemprop="description" content="Lumix IA 是一个学生组织、专注于创客项目的创新社团，来自成都实验外国语学校。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lumix 创新社">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Python 第二课
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-11-02 23:05:42 / 修改时间：23:49:13" itemprop="dateCreated datePublished" datetime="2019-11-02T23:05:42+08:00">2019-11-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/lumix-ia/categories/%E8%B5%84%E6%96%99/" itemprop="url" rel="index">
+                    <span itemprop="name">资料</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/lumix-ia/2019/11/02/python-lesson2/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/lumix-ia/2019/11/02/python-lesson2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="先说一句…"><a href="#先说一句…" class="headerlink" title="先说一句…"></a>先说一句…</h1><ul>
+<li>第三周的社团活动可能会有一个德国人来参加，因此会用中文和英语讲 Python。</li>
+<li>如果你需要下载或打印这篇文章，<a href="https://cdn.jsdelivr.net/gh/bedrockdigger/lumix-ia@master/documents/python-lesson2.pdf" target="_blank" rel="noopener">点击这里下载 PDF 版本</a>。</li>
+</ul><h1 id="这一周的总结"><a href="#这一周的总结" class="headerlink" title="这一周的总结"></a>这一周的总结</h1><p>第二周，学习了判断语句，<code>if</code>、<code>if-else</code>和<code>if-elif-else</code>三种结构。初识列表，了解列表的初始化、删除和添加元素。</p><a id="more"></a>
+
+<h1 id="if-语句"><a href="#if-语句" class="headerlink" title="if 语句"></a>if 语句</h1><h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>进行条件测试。</p>
+<h2 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h2><h3 id="条件测试表达式"><a href="#条件测试表达式" class="headerlink" title="条件测试表达式"></a>条件测试表达式</h3><p>每一个<em>条件测试表达式</em>（又称<em>布尔表达式</em>）的值只可能是正确，即<code>True</code>；或错误，即<code>False</code>二者中一种（注意大小写）。<br>条件测试表达式的基本格式是：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var == value</span><br></pre></td></tr></table></figure>
+<p>其中<code>var</code>为一变量名，<code>value</code>“<code>==</code>”被称为<em>相等运算符</em>。显然，这个运算符使得只有待测试值是变量的值时，整个表达式的值才为<code>True</code>；反之则为<code>False</code>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">"lumix"</span></span><br><span class="line"><span class="keyword">if</span> name == <span class="string">"lumix"</span>:</span><br><span class="line">    print(<span class="string">"Nice!"</span>)</span><br></pre></td></tr></table></figure>
+<p>注意第三行的缩进：“<code>:</code>”的下一行在开始处需要<strong>四个空格</strong>（或一个制表符——按<code>Tab</code>键输入）</p>
+<h3 id="直接给值"><a href="#直接给值" class="headerlink" title="直接给值"></a>直接给值</h3><p>由于一个条件测试表达式等价于<code>True</code>或<code>False</code>，原表达式可以用这两种值的一种或代表这两种值的一种的变量名替代，即：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="literal">False</span>:</span><br><span class="line">    print(<span class="string">"It's false!"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">expr = <span class="literal">True</span></span><br><span class="line"><span class="keyword">if</span> expr:</span><br><span class="line">    print(<span class="string">"It's true!"</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="其他条件运算符"><a href="#其他条件运算符" class="headerlink" title="其他条件运算符"></a>其他条件运算符</h3><p>这些运算符的用法同“<code>==</code>”。<br>|符号 |含义   |<br>|:–:|——-|<br>|<code>!=</code>|不等于  |<br>|<code>&gt;</code> |大于   |<br>|<code>&lt;</code> |小于   |<br>|<code>&gt;=</code>|大于等于|<br>|<code>&lt;=</code>|小于等于|<br>显然，它们可以用于判断数字（整数、浮点数）之间的大小关系。那么像</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="string">"a"</span> &gt; <span class="string">"b"</span>:</span><br></pre></td></tr></table></figure>
+<p>比较字符串符合 Python 的语法要求吗？</p>
+<h3 id="关键词and和or"><a href="#关键词and和or" class="headerlink" title="关键词and和or"></a>关键词<code>and</code>和<code>or</code></h3><p>和数学中的复合命题含义相同。这两个关键字决定了其左右两个表达式复合到一起的新表达式的值的判断。<br>格式：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> expr_a <span class="keyword">and</span> expr_b:</span><br><span class="line"><span class="comment"># 省略剩下循环语句</span></span><br></pre></td></tr></table></figure>
+<p>和</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> expr_a <span class="keyword">or</span> expr_b:</span><br><span class="line"><span class="comment"># 省略剩下循环语句</span></span><br></pre></td></tr></table></figure>
+<p><code>and</code>左右两边的表达式值均为<code>True</code>时，复合表达式的值才为<code>True</code>；否则就是<code>False</code>。<br><code>or</code>左右至少一边的表达式值为<code>True</code>时，符合表达式的值就为<code>True</code>；反之则是<code>False</code>。</p>
+<h2 id="更复杂的结构"><a href="#更复杂的结构" class="headerlink" title="更复杂的结构"></a>更复杂的结构</h2><h3 id="if-else-结构"><a href="#if-else-结构" class="headerlink" title="if-else 结构"></a><em>if-else</em> 结构</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">age = <span class="number">17</span></span><br><span class="line"><span class="keyword">if</span> age == <span class="number">18</span>:</span><br><span class="line">    print(<span class="string">"Hey! Happy Comming-of-Age Day!"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">"Your age isn't correct for the celebration!"</span>)</span><br></pre></td></tr></table></figure>
+<p><code>else</code>后不再需要条件表达式。<br>同样，两个“<code>:</code>”后的第二行都需要缩进。</p>
+<h3 id="if-elif-else-结构"><a href="#if-elif-else-结构" class="headerlink" title="if-elif-else 结构"></a><em>if-elif-else</em> 结构</h3><p>顾名思义，<code>elif</code>指的是“else if”，即“其他如果”。<code>if</code>和<code>else</code>之间可以存在单个或多个<code>elif</code>。</p>
+<p>条件的判断从前到后，即未通过第一个<code>if</code>之后才能进行第一个<code>elif</code>判断；任意一个<code>if</code>或<code>elif</code>的判断一旦被满足，程序的执行就会跳过整个<code>if-elif-else</code>结构的剩下部分。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">score = <span class="number">50</span></span><br><span class="line"><span class="keyword">if</span> score = <span class="number">100</span>:</span><br><span class="line">    print(<span class="string">"full marks"</span>)</span><br><span class="line"><span class="keyword">elif</span> score &lt; <span class="number">100</span> <span class="keyword">and</span> score &gt;= <span class="number">90</span>:</span><br><span class="line">    print(<span class="string">"nice"</span>)</span><br><span class="line"><span class="keyword">elif</span> score &lt; <span class="number">90</span> <span class="keyword">and</span> score &gt;= <span class="number">80</span>:</span><br><span class="line">    print(<span class="string">"so so"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">"improvement needed"</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="列表（list）"><a href="#列表（list）" class="headerlink" title="列表（list）"></a>列表（list）</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>在 Python 中，变量指的是有序的、可变的元素集合。（同一个列表中）元素可为多种数据类型，如数字和字符串。</p>
+<h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><p>类似数字和字符串的声明，列表的声明使用<code>=</code>赋值符号。以逗号（英语，半角）将元素间隔开；一头一尾用方括号包裹。<br>声明一个全由字符串组成的列表：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">topics = [<span class="string">'maker'</span>, <span class="string">'arduino'</span>, <span class="string">'ml'</span>, <span class="string">'nl'</span>]</span><br></pre></td></tr></table></figure>
+<p>声明一个多种元素数据类型的列表：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mess = [<span class="string">'lumix'</span>, <span class="number">4</span>, <span class="number">10.00</span>, <span class="literal">True</span>]</span><br></pre></td></tr></table></figure>
+<p>在 Python 中，值只能为<code>True</code>或<code>False</code>的变量称为<em>布尔型变量</em>。因此，数组<code>mess</code>中的元素有字符串、数字（整数与浮点数）和布尔三种变量类型。</p>
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><h3 id="输出整个列表"><a href="#输出整个列表" class="headerlink" title="输出整个列表"></a>输出整个列表</h3><p>函数<code>print()</code>接受直接将列表作为参数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">print(themes)</span><br></pre></td></tr></table></figure>
+
+<h3 id="引用元素"><a href="#引用元素" class="headerlink" title="引用元素"></a>引用元素</h3><p>基本格式为<code>list[num]</code>。其中<code>list</code>是一已声明的列表名；<code>num</code>是所引用元素在该列表中的索引（角标）。<strong>Python 中的角标从0开始。</strong>使用<code>list[-n]</code>引用列表<code>list</code>中<strong>倒数</strong>第n个元素。</p>
+<p>将值<code>&#39;arduino&#39;</code>赋给变量<code>name</code>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">topics = [<span class="string">'maker'</span>, <span class="string">'arduino'</span>, <span class="string">'ml'</span>, <span class="string">'nl'</span>]</span><br><span class="line">name = topic[<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+
+<p>打印出第三个元素（角标为2）：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(topics[<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
+<p>在这里倒着引用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(topics[<span class="number">-2</span>])</span><br></pre></td></tr></table></figure>
+<p>等价。</p>
+<h3 id="删除元素"><a href="#删除元素" class="headerlink" title="删除元素"></a>删除元素</h3><h4 id="del"><a href="#del" class="headerlink" title="del"></a>del</h4><p>Python 中，可以用<strong>语句</strong><code>del</code>删除列表中的元素。之所以被叫做<strong>语句</strong>，是因为它没有像函数一样把参数框起来的括号。<br>删除<code>topics</code>中的最后一项：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">del</span> topics[<span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+
+<h4 id="remove"><a href="#remove" class="headerlink" title="remove()"></a>remove()</h4><p>注意<code>remove</code>方法的格式和参数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">topics.remove(<span class="string">'ml'</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><p>使用方法<code>sort()</code>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">topics.sort()</span><br></pre></td></tr></table></figure>
+
+<h1 id="另外…（首尾照应）"><a href="#另外…（首尾照应）" class="headerlink" title="另外…（首尾照应）"></a>另外…（首尾照应）</h1><ul>
+<li>请<strong>认真看完这篇并亲自写一遍并执行了一下所有程序</strong>的你在这个页面的评论区回复一个“名字+已完成”。（“幸好翻到了这里”，你庆幸道。😏）</li>
+<li><strong>请大家尽量自己亲自写一遍上面的代码并执行</strong>。编程如同刷题，不过手、当“云玩家”真的很难进步！有任何问题，都<del>可以</del><strong>必须</strong>在下面的评论区或是 Lumix 2019 QQ群里提出来！</li>
+</ul>
+<p>下周一请尽量电脑。大家周末快乐！😉</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/lumix-ia/tags/Python/" rel="tag"># Python</a>
+              <a href="/lumix-ia/tags/if/" rel="tag"># if</a>
+              <a href="/lumix-ia/tags/else/" rel="tag"># else</a>
+              <a href="/lumix-ia/tags/elif/" rel="tag"># elif</a>
+              <a href="/lumix-ia/tags/list/" rel="tag"># list</a>
+              <a href="/lumix-ia/tags/del/" rel="tag"># del</a>
+              <a href="/lumix-ia/tags/remove/" rel="tag"># remove()</a>
+              <a href="/lumix-ia/tags/sort/" rel="tag"># sort()</a>
+              <a href="/lumix-ia/tags/sorted/" rel="tag"># sorted()</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/lumix-ia/2019/10/26/python-lesson1/" rel="next" title="Python 第一课">
+                  <i class="fa fa-chevron-left"></i> Python 第一课
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#先说一句…"><span class="nav-number">1.</span> <span class="nav-text">先说一句…</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#这一周的总结"><span class="nav-number">2.</span> <span class="nav-text">这一周的总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#if-语句"><span class="nav-number">3.</span> <span class="nav-text">if 语句</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#作用"><span class="nav-number">3.1.</span> <span class="nav-text">作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#格式"><span class="nav-number">3.2.</span> <span class="nav-text">格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#条件测试表达式"><span class="nav-number">3.2.1.</span> <span class="nav-text">条件测试表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#直接给值"><span class="nav-number">3.2.2.</span> <span class="nav-text">直接给值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他条件运算符"><span class="nav-number">3.2.3.</span> <span class="nav-text">其他条件运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关键词and和or"><span class="nav-number">3.2.4.</span> <span class="nav-text">关键词and和or</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更复杂的结构"><span class="nav-number">3.3.</span> <span class="nav-text">更复杂的结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#if-else-结构"><span class="nav-number">3.3.1.</span> <span class="nav-text">if-else 结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#if-elif-else-结构"><span class="nav-number">3.3.2.</span> <span class="nav-text">if-elif-else 结构</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#列表（list）"><span class="nav-number">4.</span> <span class="nav-text">列表（list）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">4.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#声明"><span class="nav-number">4.2.</span> <span class="nav-text">声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输出"><span class="nav-number">4.3.</span> <span class="nav-text">输出</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输出整个列表"><span class="nav-number">4.3.1.</span> <span class="nav-text">输出整个列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用元素"><span class="nav-number">4.3.2.</span> <span class="nav-text">引用元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除元素"><span class="nav-number">4.3.3.</span> <span class="nav-text">删除元素</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#del"><span class="nav-number">4.3.3.1.</span> <span class="nav-text">del</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#remove"><span class="nav-number">4.3.3.2.</span> <span class="nav-text">remove()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排序"><span class="nav-number">4.3.4.</span> <span class="nav-text">排序</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#另外…（首尾照应）"><span class="nav-number">5.</span> <span class="nav-text">另外…（首尾照应）</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="illuminate + X"
+    src="/lumix-ia/images/lumix-logo.png">
+  <p class="site-author-name" itemprop="name">illuminate + X</p>
+  <div class="site-description" itemprop="description">Lumix IA 是一个学生组织、专注于创客项目的创新社团，来自成都实验外国语学校。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/lumix-ia/archives/">
+        
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/lumix-ia/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/lumix-ia/tags/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/BedrockDigger/lumix-ia" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;BedrockDigger&#x2F;lumix-ia" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/lumix-ia/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">illuminate + X</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.2
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lumix-ia/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lumix-ia/lib/velocity/velocity.min.js"></script>
+  <script src="/lumix-ia/lib/velocity/velocity.ui.min.js"></script>
+<script src="/lumix-ia/js/utils.js"></script><script src="/lumix-ia/js/motion.js"></script>
+<script src="/lumix-ia/js/schemes/pisces.js"></script>
+<script src="/lumix-ia/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+  <script src="/lumix-ia/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'IlUj225rNiN5JrDm11zrNdMM-9Nh9j0Va',
+    appKey: 'pmP4KOykr9wTxYJoYLxDpJba',
+    placeholder: "在这里，你甚至可以说话。",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>
