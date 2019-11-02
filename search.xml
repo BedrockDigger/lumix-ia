@@ -77,7 +77,7 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">mess = [<span class="string">'lumix'</span>, <span class="number">4</span>, <span class="number">10.00</span>, <span class="literal">True</span>]</span><br></pre></td></tr></table></figure>
 <p>在 Python 中，值只能为<code>True</code>或<code>False</code>的变量称为<em>布尔型变量</em>。因此，数组<code>mess</code>中的元素有字符串、数字（整数与浮点数）和布尔三种变量类型。</p>
 <h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><h3 id="输出整个列表"><a href="#输出整个列表" class="headerlink" title="输出整个列表"></a>输出整个列表</h3><p>函数<code>print()</code>接受直接将列表作为参数。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">print(themes)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(themes)</span><br></pre></td></tr></table></figure>
 
 <h3 id="引用元素"><a href="#引用元素" class="headerlink" title="引用元素"></a>引用元素</h3><p>基本格式为<code>list[num]</code>。其中<code>list</code>是一已声明的列表名；<code>num</code>是所引用元素在该列表中的索引（角标）。<strong>Python 中的角标从0开始。</strong>使用<code>list[-n]</code>引用列表<code>list</code>中<strong>倒数</strong>第n个元素。</p>
 <p>将值<code>&#39;arduino&#39;</code>赋给变量<code>name</code>：</p>
