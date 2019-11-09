@@ -1,6 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Python 第三课</title>
+    <url>/lumix-ia/2019/11/08/python-lesson3/</url>
+    <content><![CDATA[<h1 id="先说一句…"><a href="#先说一句…" class="headerlink" title="先说一句…"></a>先说一句…</h1><ul>
+<li>这周按计划已是本学期最后一次 Python 课程。希望大家能复习过去三周内所学、重温过去三周内所思，并<del>充满激情地</del>完成综合实践任务。</li>
+<li>请注意：<strong>11月11日的社团活动暂停一次。后续安排见群。</strong></li>
+<li>如果你需要下载或打印这篇文章，<a href="https://cdn.jsdelivr.net/gh/bedrockdigger/lumix-ia@master/documents/python-lesson3.pdf" target="_blank" rel="noopener">点击这里下载 PDF 版本</a>。</li>
+</ul><a id="more"></a>
+<h1 id="迭代循环-Iterative-Loop"><a href="#迭代循环-Iterative-Loop" class="headerlink" title="迭代循环 Iterative Loop"></a>迭代循环 Iterative Loop</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p><em>迭代</em>是用计算机解决问题的一种基本方法。它利用计算机运算速度快、适合做重复性操作的特点，让计算机重复执行一些步骤。在可以用迭代算法解决的问题中，至少存在一个能不断由旧值递推出新值的变量，这个变量被称为<em>迭代变量</em>。在每次执行这些步骤时，迭代变量的原值推出它的一个新值。</p>
+<p>在 Python 中，<code>for</code>循环结构就是一种迭代的过程。与 C/C++ 不同的是，Python 很多情况下有关迭代变量的操作更简单。</p>
+<p>为什么<code>for</code>结构被称为<strong>迭代</strong>循环？当然是因为还有别的循环类型存在嘛。在 Python 中，存在另一种由<code>while</code>结构组成的循环。详情可参考<a href="https://www.cnblogs.com/duwangdan/p/6830394.html" target="_blank" rel="noopener">这篇博客</a>。</p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>在 Python中，<code>for</code>循环典型语法形式如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> iterating_var <span class="keyword">in</span> sequence:</span><br><span class="line">   do_something()</span><br></pre></td></tr></table></figure>
+<p>其中</p>
+<ul>
+<li><code>for</code>和<code>in</code>为<em>关键字</em>，是这个结构中不可改变或去掉的部分。</li>
+<li><code>iterating_var</code>就是上面提到的递归变量。可为多种数据类型，具体取决于<code>sequence</code>。</li>
+<li><code>sequence</code>是递归变量所存在的序列。换句话说，这个序列确定了迭代变量的原值推出它的一个新值的依据。很多情况下，<code>sequence</code>是一个列表，而对应的迭代方式即是让每执行一次<code>do_something()</code>，即循环体内的代码，<code>iterating_var</code>的值变为列表中下一个元素的值。列表中有几个元素，循环就执行几遍。</li>
+</ul>
+<p>另外，请仔细观察上面这个例子的<strong>代码缩进</strong>和符号“<code>:</code>”。</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="最简单的例子"><a href="#最简单的例子" class="headerlink" title="最简单的例子"></a>最简单的例子</h3><p>下面的循环使用<code>for</code>循环打印出了列表<code>topics</code>中的所有元素。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">topics = [<span class="string">'maker'</span>, <span class="string">'arduino'</span>, <span class="string">'ml'</span>, <span class="string">'nl'</span>]</span><br><span class="line"><span class="keyword">for</span> topic <span class="keyword">in</span> topics:</span><br><span class="line">    print(topic)</span><br></pre></td></tr></table></figure>
+<p>再次重复：<code>topic</code>为迭代变量；topics是作为迭代序列的列表。与 C/C++ 不同，Python 的迭代变量不需要额外定义。</p>
+<p>这三行代码等价于</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">topics = [<span class="string">'maker'</span>, <span class="string">'arduino'</span>, <span class="string">'ml'</span>, <span class="string">'nl'</span>]</span><br><span class="line">print(topics[<span class="number">0</span>])</span><br><span class="line">print(topics[<span class="number">1</span>])</span><br><span class="line">print(topics[<span class="number">2</span>])</span><br><span class="line">print(topics[<span class="number">3</span>])</span><br></pre></td></tr></table></figure>
+<p>可见，循环语句减少了表意重复的代码量。</p>
+<h3 id="与range-搭配使用"><a href="#与range-搭配使用" class="headerlink" title="与range()搭配使用"></a>与<code>range()</code>搭配使用</h3><h4 id="range-函数"><a href="#range-函数" class="headerlink" title="range()函数"></a><code>range()</code>函数</h4><h5 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h5><p>顾名思义，<code>range()</code>的返回值是一个特定的范围。</p>
+<h5 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h5><p>这是一个学习使用 Python 帮助文档的绝佳机会。😛</p>
+<ol>
+<li><p>打开一个<code>Python Shell</code>，如图所示。<br><img src="https://cdn.jsdelivr.net/gh/bedrockdigger/lumix-ia@master/assets/python-lesson3/python-shell-startmenu.png" alt="python-shell-startmenu"><br>打开之后黑乎乎的：<br><img src="https://cdn.jsdelivr.net/gh/bedrockdigger/lumix-ia@master/assets/python-lesson3/python-shell-screenshot.png" alt="python-shell-screenshot"></p>
+</li>
+<li><p>输入命令：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">help(range)</span><br></pre></td></tr></table></figure>
+<p>在<code>help()</code>函数的小括号可以里填任何你想查询的准确关键词。</p>
+</li>
+<li><p>抓住关键部分：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Return an object that produces a sequence of integers from start (inclusive) to stop (exclusive) by step. range(i, j) produces i, i+1, i+2, ..., j-1. Start defaults to 0, and stop is omitted! range(4) produces 0, 1, 2, 3. These are exactly the valid indices for a list of 4 elements. When step is given, it specifies the increment (or decrement).</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>有需可自行翻译。</p>
+</li>
+</ol>
+<p>当然，帮助文档解决不了你的疑问没关系，因为下面还要讲的嘛。</p>
+<h6 id="最简单的例子-1"><a href="#最简单的例子-1" class="headerlink" title="最简单的例子"></a>最简单的例子</h6><p><code>range()</code>接受一个参数即可正常工作。这个参数一般情况下是个整数：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> counter <span class="keyword">in</span> range(<span class="number">5</span>):</span><br><span class="line">    print(str(counter))</span><br></pre></td></tr></table></figure>
+<p>在课上我们已经注意到了，输出有点和预期不符：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">0</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td></tr></table></figure>
+<p>原因很简单：此时<code>range()</code>的作用是返回<strong>从0至比参数唯一的参数<code>j</code>小1的值</strong>（<strong>j-1</strong>）组成的范围。这就是编程中常见的<em>差一行为</em>。使用<code>range()</code>时，如果输出不符合预期且不打算动脑筋排查错误，尝试将参数<code>j</code>的值加1或减1是极好的下下策。</p>
+<h6 id="更多参数"><a href="#更多参数" class="headerlink" title="更多参数"></a>更多参数</h6><p>事实上，<code>range</code>可以接受三个参数：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> counter <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">10</span>, <span class="number">2</span>):</span><br><span class="line">    print(str(counter))</span><br></pre></td></tr></table></figure>
+<p>例子中的“1”(<strong>参数<code>i</code></strong>)替换的是“最简单的例子”里“0”的功能，即范围的起始值。“2”被称为<code>step</code>，也就是步长，可理解成数学中等差数列的公差。<br>自然，代码的输出是：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1</span><br><span class="line">3</span><br><span class="line">5</span><br><span class="line">7</span><br><span class="line">9</span><br></pre></td></tr></table></figure>
+<h6 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h6><p>在标准结构</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">range(i, j, step)</span><br></pre></td></tr></table></figure>
+<p>中，只有终点<code>j</code>是不可或缺的参数。三者的相对位置不能改变。只要满足这两个要求，<code>range()</code>函数随便你用啦。</p>
+<h4 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h4><p>用<code>range()</code>生成的数字序列代替列表在一些情况下很方便。下面用两个例子具体展示。</p>
+<h4 id="例：输出100以内的完全平方数"><a href="#例：输出100以内的完全平方数" class="headerlink" title="例：输出100以内的完全平方数"></a>例：输出100以内的完全平方数</h4><p>问题等价于输出1到10的平方数。可以从1数到10，并用<code>print()</code>打印出当前迭代变量的平方数。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> counter <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">11</span>):</span><br><span class="line">    sqr = counter ** <span class="number">2</span></span><br><span class="line">    print(str(sqr))</span><br></pre></td></tr></table></figure>
+<p>输出是</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1</span><br><span class="line">4</span><br><span class="line">9</span><br><span class="line">16</span><br><span class="line">25</span><br><span class="line">36</span><br><span class="line">49</span><br><span class="line">64</span><br><span class="line">81</span><br><span class="line">100</span><br></pre></td></tr></table></figure>
+<p>其中<code>**</code>是指数运算符。使用格式为<code>m ** n</code>，<code>m</code>是底数，<code>n</code>是指数。因此，<code>2 ** 5</code>的意思是“2的5次方”。</p>
+<p>思考：为什么输出的是1到10的平方数，<code>range()</code>的第二个参数是11？</p>
+<h4 id="例：输出500以内能被3整除的数"><a href="#例：输出500以内能被3整除的数" class="headerlink" title="例：输出500以内能被3整除的数"></a>例：输出500以内能被3整除的数</h4><h5 id="方法一：条件语句"><a href="#方法一：条件语句" class="headerlink" title="方法一：条件语句"></a>方法一：条件语句</h5><p><code>%</code>在 Python 中是一个运算符号，表示<em>取模</em>。<code>m % n</code>的值是<code>m</code>除以<code>n</code>的<strong>余数</strong>。</p>
+<p>从1数到500，每次判断当前这个数除以3余数是否为0，即是否能被3整除。若能，则用<code>print()</code>打印出这个数。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> counter <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">501</span>):</span><br><span class="line">    <span class="keyword">if</span> counter % <span class="number">3</span> == <span class="number">0</span>:</span><br><span class="line">        print(str(counter))</span><br></pre></td></tr></table></figure>
+
+<h5 id="方法二：巧用step"><a href="#方法二：巧用step" class="headerlink" title="方法二：巧用step"></a>方法二：巧用<code>step</code></h5><p>从3开始数到500，用<code>step</code>定义每隔3个数一次并打印出当前数到的数，也可以解决问题。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> counter <span class="keyword">in</span> range(<span class="number">3</span>, <span class="number">501</span>, <span class="number">3</span>):</span><br><span class="line">    print(str(counter))</span><br></pre></td></tr></table></figure>
+<p>两种方法等价，输出都是（<code>···</code>省略了一些结果）</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">3</span><br><span class="line">6</span><br><span class="line">9</span><br><span class="line">12</span><br><span class="line">15</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">492</span><br><span class="line">495</span><br><span class="line">498</span><br></pre></td></tr></table></figure>
+
+<h3 id="嵌套循环"><a href="#嵌套循环" class="headerlink" title="嵌套循环"></a>嵌套循环</h3><p>顾名思义，<em>嵌套循环</em>指的就是一个<code>for</code>循环结构的内部还嵌了一层或多层<code>for</code>循环。下面用一个例子具体展示。</p>
+<p>如何帮助你小学的弟弟妹妹解决九九乘法表？不妨用 Python 打印出来一个给TA背。🤣</p>
+<p>请仔细观察<strong>代码缩进</strong>。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> op1 <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">10</span>):</span><br><span class="line">    <span class="keyword">for</span> op2 <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">10</span>):</span><br><span class="line">        current_product = op1 * op2</span><br><span class="line">        current_output = str(op1) + <span class="string">"*"</span> + str(op2) + <span class="string">"="</span> + str(current_product)</span><br><span class="line">        print(current_output, end=<span class="string">"  "</span>)</span><br><span class="line">    print(<span class="string">"\n"</span>)</span><br></pre></td></tr></table></figure>
+<p>首先，看看两个循环是怎么嵌套的：每当外循环的迭代变量<code>op1</code>从<code>range(1, 10)</code>取一个时，内循环<strong>总是完整地执行了一遍</strong>。也就是说，当<code>op1</code>数1个数时，<code>op2</code>数了9个数。下面这幅图展示了<code>op1</code>从1迭代到<code>3</code>的过程。<br><img src="https://cdn.jsdelivr.net/gh/bedrockdigger/lumix-ia@master/assets/python-lesson3/nested-loop.png" alt="nested-loop"><br>九九乘法表的每一个基本单元都是<code>m*n=x</code>的形式，正好用<code>op1</code>表示<code>m</code>，<code>op2</code>表示<code>n</code>。</p>
+<p>内循环中剩下的代码很好理解。<code>current_product</code>是<code>x</code>。<code>current_output</code>把两个乘数和积都转换成字符串并用<code>+</code>符号拼接上乘号和等于符号。内循环每执行9次，也就是<code>op2</code>每从1数到9，会执行一次<code>print(&quot;\n&quot;)</code>来换行，使得每一横行都是九个基本单元。</p>
+<p>另外你可能已经注意到了内循环里的<code>print()</code>有一个没见过的参数<code>end</code>。但善于观察的你一定见过 Python 其实每个<code>print()</code>之后都自动换行的现象。也就是说，</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(<span class="string">"1"</span>)</span><br><span class="line">print(<span class="string">"2"</span>)</span><br><span class="line">print(<span class="string">"3"</span>)</span><br></pre></td></tr></table></figure>
+<p>的输出并不是</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">123</span><br></pre></td></tr></table></figure>
+<p>而是</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
+<p>不信你试！😄</p>
+<p>原理：Python 的每一行<code>print()</code>出来的语句都有结尾字符，默认是<code>\n</code>。在通常情况下这个功能对懒癌有极好的促进作用，但显然在<code>1*1=1</code>和<code>1*1=2</code>之间需要的不是换行，而是空格。因此，使用<code>end=&quot;  &quot;</code>把默认的结尾字符换成两个空格。</p>
+<p>最后，看看输出：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1*1=1  1*2=2  1*3=3  1*4=4  1*5=5  1*6=6  1*7=7  1*8=8  1*9=9</span><br><span class="line"></span><br><span class="line">2*1=2  2*2=4  2*3=6  2*4=8  2*5=10  2*6=12  2*7=14  2*8=16  2*9=18</span><br><span class="line"></span><br><span class="line">3*1=3  3*2=6  3*3=9  3*4=12  3*5=15  3*6=18  3*7=21  3*8=24  3*9=27</span><br><span class="line"></span><br><span class="line">4*1=4  4*2=8  4*3=12  4*4=16  4*5=20  4*6=24  4*7=28  4*8=32  4*9=36</span><br><span class="line"></span><br><span class="line">5*1=5  5*2=10  5*3=15  5*4=20  5*5=25  5*6=30  5*7=35  5*8=40  5*9=45</span><br><span class="line"></span><br><span class="line">6*1=6  6*2=12  6*3=18  6*4=24  6*5=30  6*6=36  6*7=42  6*8=48  6*9=54</span><br><span class="line"></span><br><span class="line">7*1=7  7*2=14  7*3=21  7*4=28  7*5=35  7*6=42  7*7=49  7*8=56  7*9=63</span><br><span class="line"></span><br><span class="line">8*1=8  8*2=16  8*3=24  8*4=32  8*5=40  8*6=48  8*7=56  8*8=64  8*9=72</span><br><span class="line"></span><br><span class="line">9*1=9  9*2=18  9*3=27  9*4=36  9*5=45  9*6=54  9*7=63  9*8=72  9*9=81</span><br></pre></td></tr></table></figure>
+
+<h3 id="循环与列表"><a href="#循环与列表" class="headerlink" title="循环与列表"></a>循环与列表</h3><p>列表本身就和<code>range()</code>函数一样，可以作为<code>for</code>迭代循环结构中的序列。自然而然，循环和列表有着不解之缘。</p>
+<h4 id="列表解析-list-comprehension"><a href="#列表解析-list-comprehension" class="headerlink" title="列表解析 list comprehension"></a>列表解析 list comprehension</h4><p><em>列表解析</em>是一种看起来有些玄学但效率很高的语法结构。在下面的例子中，一行代码更比三行强：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sqr = [value**<span class="number">2</span> <span class="keyword">for</span> value <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">11</span>)]</span><br></pre></td></tr></table></figure>
+<p>生成的列表<code>sqr</code>等价于</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sqr = []</span><br><span class="line"><span class="keyword">for</span> value <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">11</span>):</span><br><span class="line">    sqr.append(value ** <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<p>生成的列表<code>sqr</code>。不信你可以把两种方法生成的<code>sqr</code>打印出来观察是否一模一样。</p>
+<p><code>append()</code><em>方法</em>的功能是把括号里的参数当作元素，添加到<code>.</code>之前的那个列表（此处是<code>sqr</code>）里去。注意 Python 方法和函数在语法上的区别：方法用一个“<code>.</code>”（英文句号，半角）连接它的操作对象。</p>
+<p>你能借助第二种列表生成方法自己总结出列表解析的语法规则吗？</p>
+<h4 id="遍历列表-list-traversal"><a href="#遍历列表-list-traversal" class="headerlink" title="遍历列表 list traversal"></a>遍历列表 list traversal</h4><p>所谓<em>遍历</em>，是指沿着某条搜索路线，依次对某个数据结构中每个节点均做一次访问。对于 Python 的列表数据结构来讲，遍历指的是访问每一个从头到尾的元素。举例？你已经看过啦，就是这篇文章开头处“最简单的例子”。</p>
+<h1 id="另外…（首尾照应）"><a href="#另外…（首尾照应）" class="headerlink" title="另外…（首尾照应）"></a>另外…（首尾照应）</h1><ul>
+<li>重要的事情再说一遍：<strong>11月11日的社团活动暂停一次。后续安排见群。</strong></li>
+<li>请<strong>认真看完这篇并亲自写一遍并执行了一下所有程序</strong>的你在这个页面的评论区回复一个“名字+已完成”。（“幸好翻到了这里”，你庆幸道。😏）</li>
+<li><strong>请大家尽量自己亲自写一遍上面的代码并执行</strong>。编程如同刷题，不过手、当“云玩家”真的很难进步！有任何问题，都<del>可以</del><strong>必须</strong>在下面的评论区或是 Lumix 2019 QQ群里提出来！</li>
+</ul>
+]]></content>
+      <categories>
+        <category>资料</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>for</tag>
+        <tag>range()</tag>
+        <tag>append()</tag>
+        <tag>**</tag>
+        <tag>循环</tag>
+        <tag>列表解析</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python 第二课</title>
     <url>/lumix-ia/2019/11/02/python-lesson2/</url>
     <content><![CDATA[<h1 id="先说一句…"><a href="#先说一句…" class="headerlink" title="先说一句…"></a>先说一句…</h1><ul>
@@ -107,6 +222,8 @@
         <tag>remove()</tag>
         <tag>sort()</tag>
         <tag>sorted()</tag>
+        <tag>条件语句</tag>
+        <tag>列表</tag>
       </tags>
   </entry>
   <entry>
@@ -259,7 +376,7 @@
   <entry>
     <title>Hello World!</title>
     <url>/lumix-ia/2019/10/18/hello-world/</url>
-    <content><![CDATA[<h2 id="衷心欢迎各位加入-Lumix-大家庭！"><a href="#衷心欢迎各位加入-Lumix-大家庭！" class="headerlink" title="衷心欢迎各位加入 Lumix 大家庭！"></a>衷心欢迎各位加入 Lumix 大家庭！</h2><h6 id="此网站算是我们社团以后的“官网”，收藏下嘛？"><a href="#此网站算是我们社团以后的“官网”，收藏下嘛？" class="headerlink" title="此网站算是我们社团以后的“官网”，收藏下嘛？"></a>此网站算是我们社团以后的“官网”，收藏下嘛？</h6>]]></content>
+    <content><![CDATA[<p>衷心欢迎各位加入 Lumix 大家庭！<br>此网站算是我们社团以后的“官网”，收藏下嘛？</p>]]></content>
       <categories>
         <category>里程碑</category>
       </categories>
